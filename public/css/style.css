@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.camera-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Optional: flip if front camera */
+}
+
+.frost-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Middle window (clear phone-sized viewport) */
+.center-window {
+    width: 375px; /* phone screen width */
+    height: 100%;
+}
+
+/* Left side frost */
+.frost-left,
+.frost-right {
+    flex: 1;
+    height: 100%;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.3);
+}
